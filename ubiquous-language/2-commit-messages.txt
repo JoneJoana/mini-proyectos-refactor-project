@@ -1,0 +1,20 @@
+1. Usa lenguaje negativo, mejor describir lo que se ha hecho (que las pickups ahora si muestran el estado)
+2. describe el cambio bien
+3. No especifica nada del arreglo (no lenguaje ubicuo)
+4. Muy técnico, no ubicuo
+5. No especifica cambios ni arreglos
+6. No es lenguaje ubicuo pero describe bien el cambio
+7. Totalmente genérico, no describe el cambio
+8. bien, lenguaje ubicuo
+9. No es lenguaje ubicuo pero describe bien el cambio
+10. Muy genérico, no describe el cambio ni es ubicuo
+11. ubicuo
+12. faltaría una breve descripción del cambio
+13. No ubicuo, describe el cambio
+14. Muy genérico, sin definir
+15. Ubicuo
+16. Muy genérico, sin definir
+17. Ubicuo y describe el cambio bien
+18. Nada descriptivo ni ubicuo
+19. Ubicuo y describe el cambio bien
+20. Nada descriptivo ni ubicuo

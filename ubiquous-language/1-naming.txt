@@ -1,0 +1,20 @@
+1. data --> muy genérico, no dice nada realmente
+2. pickupReq --> usa abreviatura y mayuscula si fuera una clase por ejemplo
+3. createPickupRequest(customerId, window) --> el 2o parámetro (window) genérico, no se entiende el contexto, el nombre del método bien
+4. shipmentId --> el contexto ya te da a entender que el id se habla de shipment
+5. request --> genérico, no especifico
+6. createShipmentRequest() --> el nombre seria correcto
+7. delivery_time --> no sigue la convención del resto del proyecto de camelCase
+8. deliveryWindowStart --> creemos que lo mismo que la 4, el contexto ya nos dice que es deliverywindow, siendo una propiedad interna el start y el stop. entendiendo delverywindow como entidad. 
+9. createPickup --> siendo propiedad no estaria bien ya que create se entiende que es una función, en todo caso isCreatePickup? 
+10. addr --> entendemos que es abreviatura para addres, no es claro
+11. customer --> podria ser una instancia? como clase seria en mayuscula y podria ser correcta
+12. assignDriverToShipment(shipmentRef) --> como nombre de método parece bien, parámetro quizás la abreviación seria mejor no usarla
+13. carrier_id --> snake case y si es propiedad de Carrier seria carrier.id
+14. validate() --> de entrada genérico, pero si es método dentro del objeto pickupRequest pues ya ni tan mal
+15. validatePickupRequest(pickupRequest) --> podria verse como redundante
+16. create --> al no llevar paréntesis indica que es propiedad, en todo caso isCreate?
+17. pickupWindow --> por la user story entendemos que se habla de recogida, por lo que pickupwindow quizás seria la palabra con mas sentido, mas que deliverywindow
+18. trackingNum --> la abreviación de number entendemos que no seria correcta
+19. notifyCarrierOfPickup(pickupRequest) --> método parece ok, pero dependiendo en que clase se encuentre, o si esta suelta por el código estaria bien
+20. status --> si es propiedad dentro de una clase puede estar bien, como variable suelta quizás no. 

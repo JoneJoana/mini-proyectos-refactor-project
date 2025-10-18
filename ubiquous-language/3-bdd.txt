@@ -1,0 +1,21 @@
+Scenario 1: The address for the pickup request given by the client doesnt exist
+
+Given a client that enters an address that doesnt exist
+When the customer wants to submit the PickupRequest,
+Then the system informs the user that the address is not correct
+
+
+Scenario 2: Prevent scheduling if requested window its not enough time to pickup and deliver shipment
+
+Given a client that chooses a deliverywindow that it's less than the time needed to go from A to B locations
+When the customer submits the PickupRequest,
+Then the system rejects the request and explains motive,
+And the system suggests minimum time
+
+
+Scenario 3: There carrier the client choose is not available on the DeliveryWindow assigned to pickup
+
+Given a client that selects an specific carrier that is not available on that deliverywindow
+When the customer submits the PickupRequest,
+Then the system rejects de request
+And suggest other available carriers for that time and period
