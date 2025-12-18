@@ -24,5 +24,6 @@ El Modelo, Color, Cambio y Motor son obligatorios y solo se puede elegir uno. Lo
     # Respuesta:
 
     ![alt text](exA-first-pattern-uml.png)
+    (falta flecha de CarBuilder a Car, en cuanto a que CarBuilder usa Car)
+    la imagen la tenia ya guardada por lo que no puedo editar la imagen, en el código aplico algunos cambios al diseño
 
-TODO código
