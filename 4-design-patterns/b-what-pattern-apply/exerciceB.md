@@ -41,5 +41,3 @@ Estamos intentado solventar un problema estructural ya que hablamos de como orga
 
 # Respuesta:
 Estamos intentando resolver 2 tipos de problema, ambos de tipo comportamiento. Por un lado, el hecho de poder ordenar por diferentes campos nos lleva a implementar el patrón strategy, ya que el user escogerá como ordena en tiempo de ejecución. Por otro lado, el patrón command, nos ayuda a poder llamar desde diferentes partes a unos comandos que podrán establacerse segun haya elegido el usuario.  
-
-TODO código
