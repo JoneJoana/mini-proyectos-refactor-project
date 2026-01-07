@@ -25,13 +25,22 @@ Identificación del problema
     ¿Qué patrones nos podrían ayudar en la resolución del problema? (pista: son dos patrones)
 
         ## Respuesta:
-        Template method
+        Template method y Strategy pattern.        
 
     Diseña cada solución con un Diagrama UML
 
         ## Respuesta:
-
+        ver imagenes adjuntas en carpeta
 
     ¿Qué ventajas y desventajas trae una solucion vs. otra? ¿Cuál elegirías según el contexto y necesidad de la empresa? Fundamenta tu respuesta.
 
         ## Respuesta:
+        Template method nos sirve en cuanto sabemos que el algoritmo es fijo pero que tiene ciertos pasos adaptables, que implementaran las clases hijas, por tanto nos implica herencia. 
+
+        Strategy en cambio no usa herencia sino composición, se inyecta a traves de ese strategy el paso que queremos, en este caso el calculo del coste.
+
+        Template te asegura que el proceso no cambia. Strategy te permite cambiar el comportamiento dinámicamente. 
+
+        Template es más sencillo, strategy aporta algo más de complejidad y mayor numero de clases. 
+
+        En un caso sencillo aplicaria template, en el caso de tener reglas de negocio dinámicas o configuradas por ddbb sería mas adecuado el strategy.

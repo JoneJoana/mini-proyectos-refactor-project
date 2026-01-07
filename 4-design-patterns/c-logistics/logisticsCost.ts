@@ -1,4 +1,6 @@
-type Order = {
+//Template Method
+
+export type Order = {
     id: string;
     destination: string;
     weight: number;
