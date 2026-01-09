@@ -9,3 +9,4 @@ En el código inical se está rompiendo el Single Responsability principle, ya q
 
 
 En el primer paso del refactor, extraigo el guardado en persistencia a una nueva clase y para no caer en romper el principio de inversion de dependencias, añado una interface para los sistemas de persistencia y hago que la clase OrderService, reciba por constructor el sistema de persistencia que necesite. 
+Lo mismo para el notifier.

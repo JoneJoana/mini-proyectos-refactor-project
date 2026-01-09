@@ -1,9 +1,11 @@
 import { Order } from "./1-create-order-original";
+import { OrderNotification } from "./OrderNotification";
+import { OrderNotificationSlack } from "./OrderNotificationSlack";
 import { OrderPersistence } from "./OrderPersistence";
-
+import { OrderPersistenceApi } from "./OrderPersistenceApi";
 
 class OrderService {
-  constructor(private readonly persistence: OrderPersistence){}
+  constructor(private readonly persistence: OrderPersistence, private readonly notifier: OrderNotification){}
 
   async create(orderData: Order) {
     // 1. Validación de carrito vacío (Lógica de negocio)
@@ -13,9 +15,19 @@ class OrderService {
     await this.persistence.save(orderData);
 
     // 3. Enviamos una notificación por slack (Notificacion externa)
-    await fetch("https://hooks.slack.com/services/...", {
-      method: "POST",
-      body: JSON.stringify({ text: `Nuevo pedido: ${orderData.id}` }),
-    });
+    const message = `Nuevo pedido: ${orderData.id}` //(negocio)
+    await this.notifier.notifyCreation(message);
   }
 }
+
+
+const persistence = new OrderPersistenceApi();
+const notification = new OrderNotificationSlack();
+
+const orderService = new OrderService(persistence, notification);
+
+const order: Order = {
+    id: '123##',
+    items: [ 'champú', 'toallitas']
+};
+orderService.create(order);
