@@ -12,3 +12,5 @@ En el primer paso del refactor, extraigo el guardado en persistencia a una nueva
 Lo mismo para el notifier.
 
 En cuanto a desacoplar el sistema de validación, solo creo clase sin interface ya que entiendo que no van a haber diferentes implementaciones de validación, en todo caso diferentes reglas a aplicar para validar una orden. (concepto value objects? Order podria tener validaciones en el propio constructor). 
+
+Como ultimo refactor, elimino el paso de notificar ya que no es estrictamente un paso necesario para la creación, por lo que directamente puede no tener sentido que esté en el método directamente. 
