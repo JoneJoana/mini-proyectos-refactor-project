@@ -1,28 +1,30 @@
 import { Order } from "./1-create-order-original";
-import { OrderNotification } from "./OrderNotification";
-import { OrderNotificationSlack } from "./OrderNotificationSlack";
-import { OrderPersistence } from "./OrderPersistence";
-import { OrderPersistenceApi } from "./OrderPersistenceApi";
+import { OrderNotifier } from "./OrderNotifier";
+import { OrderNotifierSlack } from "./OrderNotifierSlack";
+import { OrderRepository } from "./OrderRepository";
+import { OrderRepositoryApi } from "./OrderRepositoryApi";
 
 class OrderService {
-  constructor(private readonly persistence: OrderPersistence, private readonly notifier: OrderNotification){}
+  constructor(private readonly orderRepository: OrderRepository, private readonly notifier: OrderNotifier){}
 
-  async create(orderData: Order) {
+  async create(order: Order) {
     // 1. Validación de carrito vacío (Lógica de negocio)
-    if (orderData.items.length === 0) throw new Error("Carrito vacío");
+    if (order.items.length === 0) throw new Error("Carrito vacío");
 
     // 2. Creamos la orden en los sistemas de negocio (Persistencia)
-    await this.persistence.save(orderData);
+    await this.orderRepository.save(order);
 
     // 3. Enviamos una notificación por slack (Notificacion externa)
-    const message = `Nuevo pedido: ${orderData.id}` //(negocio)
+    const message = `Nuevo pedido: ${order.id}` //(negocio)
     await this.notifier.notifyCreation(message);
   }
 }
 
 
-const persistence = new OrderPersistenceApi();
-const notification = new OrderNotificationSlack();
+
+
+const persistence = new OrderRepositoryApi();
+const notification = new OrderNotifierSlack();
 
 const orderService = new OrderService(persistence, notification);
 
