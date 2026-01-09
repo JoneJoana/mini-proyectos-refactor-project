@@ -10,3 +10,5 @@ En el código inical se está rompiendo el Single Responsability principle, ya q
 
 En el primer paso del refactor, extraigo el guardado en persistencia a una nueva clase y para no caer en romper el principio de inversion de dependencias, añado una interface para los sistemas de persistencia y hago que la clase OrderService, reciba por constructor el sistema de persistencia que necesite. 
 Lo mismo para el notifier.
+
+En cuanto a desacoplar el sistema de validación, solo creo clase sin interface ya que entiendo que no van a haber diferentes implementaciones de validación, en todo caso diferentes reglas a aplicar para validar una orden. (concepto value objects? Order podria tener validaciones en el propio constructor). 

@@ -3,13 +3,14 @@ import { OrderNotifier } from "./OrderNotifier";
 import { OrderNotifierSlack } from "./OrderNotifierSlack";
 import { OrderRepository } from "./OrderRepository";
 import { OrderRepositoryApi } from "./OrderRepositoryApi";
+import { OrderCreationValidator } from "./OrderCreationValidator";
 
 class OrderService {
-  constructor(private readonly orderRepository: OrderRepository, private readonly notifier: OrderNotifier){}
+  constructor(private readonly validator: OrderCreationValidator, private readonly orderRepository: OrderRepository, private readonly notifier: OrderNotifier){}
 
   async create(order: Order) {
-    // 1. Validación de carrito vacío (Lógica de negocio)
-    if (order.items.length === 0) throw new Error("Carrito vacío");
+    // 1. Validación de carrito vacío (Lógica de negocio)    
+    this.validator.validateCreation(order);
 
     // 2. Creamos la orden en los sistemas de negocio (Persistencia)
     await this.orderRepository.save(order);
@@ -23,10 +24,11 @@ class OrderService {
 
 
 
-const persistence = new OrderRepositoryApi();
-const notification = new OrderNotifierSlack();
+const repository = new OrderRepositoryApi();
+const notifier = new OrderNotifierSlack();
+const validator = new OrderCreationValidator();
 
-const orderService = new OrderService(persistence, notification);
+const orderService = new OrderService(validator, repository, notifier);
 
 const order: Order = {
     id: '123##',
