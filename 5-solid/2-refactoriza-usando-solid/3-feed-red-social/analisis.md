@@ -11,3 +11,4 @@
 
 
 ## Refactoriza
+    Del refactor que planteo entiendo que la clase FeedItemHtmlBuilder se podria beneficiar de algun patron como podria ser el strategy por ejemplo, para eliminar ese if/if else, y no romper así el OCP. He añadido métodos privados para mejorar la lectura y encapsular un poco la implementación segun el tipo de contenido. 
