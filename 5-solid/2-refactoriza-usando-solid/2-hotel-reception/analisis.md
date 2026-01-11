@@ -11,3 +11,4 @@
 
 
 ## Refactoriza
+    He dudado entre separar el check in de la creacion de la llave digital en si, primero pensando que era parte del mismo proceso de checkin podian ir juntos, al darle una vuelta y plantearme si esa generacion de llave se hace unicamente cuando se hace checkin o no... he decidido que no, por tanto tiene más sentido que sea una accion separada. 
